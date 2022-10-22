@@ -1,13 +1,6 @@
-=begin
-  Some document.
-=end
-
-# = Some explanation for Item Class.
 class Item < ApplicationRecord
-  # == Some explanation for accessor.
   attr_accessor :name
 
-  # == Some explanation for initialize method.
   def initialize(name)
     @name = name
   end
