@@ -1,5 +1,7 @@
 class Item < ApplicationRecord
-  def item_name
-    name
+  attr_accessor :name
+
+  def initialize(name)
+    @name = name
   end
 end
