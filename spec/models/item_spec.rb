@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Item, type: :model do
+  subject { 'Item1' }
+
   it('`name`を登録すると、`name`が取得出来ること') do
     item = Item.new('Item1')
 
