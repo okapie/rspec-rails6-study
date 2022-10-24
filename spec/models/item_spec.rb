@@ -1,14 +1,17 @@
 require 'rails_helper'
 
+shared_context 'first item' do
+  before do
+    described_class.create(name: 'Item1')
+  end
+end
+
 RSpec.describe Item, type: :model do
   subject { 'Item1' }
 
-  let!(:item) { described_class.create(name: 'Item1') }
+  include_context 'first item'
 
-  # 遅延初期化が行われるので、NoMethodError になる。
-  # let(:created_item) { Item.create(name: 'Item1') }
-
-  it('`item`を登録すると、`item`が取得出来ること') do
-    expect(described_class.first).to eq item
+  it('`item`を登録すると、その`name`が取得出来ること') do
+    expect(described_class.first.name).to eq('Item1')
   end
 end
