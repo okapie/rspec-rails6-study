@@ -54,6 +54,7 @@ end
 
 group :development, :test do
   gem 'rspec-rails', '~> 6.0.0'
+  gem 'pry-rails'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
