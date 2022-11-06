@@ -1,5 +1,5 @@
 item_success_post:
-  name: 'Item1'
+  name: 'Example1'
 
 item_failed_post:
   name: ''
