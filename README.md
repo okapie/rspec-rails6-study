@@ -15,6 +15,7 @@
 | :--- | :--- | :--- |
 | `it` | 単位 (`example`) をまとめる役割を担う。<br>引数には、テスト対象のメソッドが行う振る舞いを記述する。 | [c2604cd](https://github.com/okapie/rspec-rails6-study/commit/c2604cdaad5c5c35a7632c37a163ec6ef0feeda8) |
 | `shared_context` | `example` グループの中で評価されるブロックを定義する。<br>`shared_context` で共通化した処理を、 `include_context` によって呼び出す。 | [dd7035b](https://github.com/okapie/rspec-rails6-study/commit/dd7035b3a730937a15988fc478e23ba9e3f62f82) |
+| `shared_examples` | `it` 内の処理を共通化する。<br>`it_behaves_like` により呼び出し可能。 | [66e4728](https://github.com/okapie/rspec-rails6-study/commit/66e472870e42eca0fc13540181614e49e222fbb0) |
 
 ### Hooks
 
