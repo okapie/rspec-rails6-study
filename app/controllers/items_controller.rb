@@ -4,6 +4,8 @@ class ItemsController < ApplicationController
   # GET /items or /items.json
   def index
     @items = Item.all
+
+    @query_params = { year: 2022, month: 11 }.to_h
   end
 
   # GET /items/1 or /items/1.json
