@@ -14,7 +14,8 @@
     <% @items.each do |item| %>
       <tr>
         <td><%= item.name %></td>
-        <td><%= link_to 'Show', item_path(item, @query_params) %></td>
+        <td><%= link_to 'Show (without query params)', item %></td>
+        <td><%= link_to 'Show (with query params)', item_path(item, @query_params) %></td>
         <td><%= link_to 'Edit', edit_item_path(item) %></td>
         <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
