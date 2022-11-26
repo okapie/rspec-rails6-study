@@ -4,10 +4,6 @@ class UsersController < ApplicationController
   # GET /users or /users.json
   def index
     @users = User.all
-
-    respond_to do |format|
-      format.json { render :json => @users }
-    end
   end
 
   # GET /users/1 or /users/1.json
@@ -21,6 +17,21 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+  end
+
+  # GET /users/1/activate
+  def activate
+    @user = User.find(params[:id])
+
+    # クエリ文字列の `status` キーが渡せるように許可する。
+    params.permit(:id, :format, :status).to_h
+
+    # 以下のエンドポイントにアクセス可能。
+    #   /users/{id}/activate.json または、
+    #   /users/{id}/activate.json?status=activate
+    respond_to do |format|
+      format.json { render :json => @user }
+    end
   end
 
   # POST /users or /users.json
