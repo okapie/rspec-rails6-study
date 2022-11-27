@@ -23,4 +23,20 @@ RSpec.describe UsersController, type: :request do
       end
     end
   end
+
+  describe 'GET /users/{:id}/activate.json?status=activate' do
+    subject { get "/users/#{id}/activate.json?#{params[:status]}" }
+
+    shared_context 'params' do |diff_params = {}|
+      let(:params) { { status: 'deactivate' }.merge(diff_params) }
+    end
+
+    context 'クエリあり (正常系)' do
+      include_context 'params', { status: 'activate' }
+
+      it 'リクエスト成功 (status 200)' do
+        expect(subject).to eq 200
+      end
+    end
+  end
 end
