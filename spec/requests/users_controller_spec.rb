@@ -25,25 +25,19 @@ RSpec.describe UsersController, type: :request do
   end
 
   describe 'GET /users/{:id}/activate.json?status=activate' do
-    subject { get "/users/#{id}/activate.json?#{params[:status]}" }
+    describe 'クエリあり' do
+      subject { get "/users/#{id}/activate.json?#{params[:status]}" }
 
-    shared_context 'params' do |diff_params = {}|
-      let(:params) { { status: 'deactivate' }.merge(diff_params) }
-    end
-
-    context 'クエリあり (正常系)' do
-      include_context 'params', { status: 'activate' }
-
-      it 'リクエスト成功 (status 200)' do
-        expect(subject).to eq 200
+      shared_context 'params' do |diff_params = {}|
+        let(:params) { { status: 'deactivate' }.merge(diff_params) }
       end
-    end
 
-    context '送信したクエリに`status`キーが含まれるかどうか (異常系)' do
-      include_context 'params', { stat: 'activate' }
+      context '正しいクエリが渡されていること' do
+        include_context 'params', { status: 'activate' }
 
-      it '`status`がキーであるハッシュを含まない' do
-        expect(params).not_to include(:status => 'activate')
+        it 'リクエスト成功 (status 200)' do
+          expect(subject).to eq 200
+        end
       end
     end
   end
