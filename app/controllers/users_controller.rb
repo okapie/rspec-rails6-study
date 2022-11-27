@@ -21,16 +21,20 @@ class UsersController < ApplicationController
 
   # GET /users/1/activate
   def activate
-    @user = User.find(params[:id])
+    begin
+      @user = User.find(params[:id])
 
-    # クエリ文字列の `status` キーが渡せるように許可する。
-    params.permit(:id, :format, :status).to_h
+      # クエリ文字列の `status` キーが渡せるように許可する。
+      params.permit(:id, :format, :status).to_h
 
-    # 以下のエンドポイントにアクセス可能。
-    #   /users/{id}/activate.json または、
-    #   /users/{id}/activate.json?status=activate
-    respond_to do |format|
-      format.json { render :json => @user }
+      # 以下のエンドポイントにアクセス可能。
+      #   /users/{id}/activate.json または、
+      #   /users/{id}/activate.json?status=activate
+      respond_to do |format|
+        format.json { render :json => @user }
+      end
+    rescue ActionController::UnpermittedParameters => invalid
+      raise invalid
     end
   end
 
