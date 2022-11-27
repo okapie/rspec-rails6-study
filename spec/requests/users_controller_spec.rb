@@ -38,5 +38,13 @@ RSpec.describe UsersController, type: :request do
         expect(subject).to eq 200
       end
     end
+
+    context '送信したクエリに`status`キーが含まれるかどうか (異常系)' do
+      include_context 'params', { stat: 'activate' }
+
+      it '`status`がキーであるハッシュを含まない' do
+        expect(params).not_to include(:status => 'activate')
+      end
+    end
   end
 end
