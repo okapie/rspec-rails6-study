@@ -25,7 +25,23 @@ RSpec.describe UsersController, type: :request do
   end
 
   describe 'GET /users/{:id}/activate.json?status=activate' do
-    describe 'クエリあり' do
+    describe '誤ったクエリキー' do
+      let(:param) { ActionController::Parameters.new({
+        id: id,
+        format: :json,
+        stat: 'activate'
+      }) }
+
+      subject { get "/users/#{id}/activate.json", params: params }
+
+      context '誤ったクエリキーが検知されること' do
+        it '例外が発生' do
+          expect{subject}.to raise_error NameError
+        end
+      end
+    end
+
+    describe '正しいクエリキー' do
       subject { get "/users/#{id}/activate.json?#{params[:status]}" }
 
       shared_context 'params' do |diff_params = {}|
