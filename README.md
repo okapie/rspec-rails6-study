@@ -7,7 +7,7 @@
 | `be_valid` | 渡した Model のインスタンスの `valid?` メソッドが `true` の場合にパスする。 | [c1e7f16](https://github.com/okapie/rspec-rails6-study/commit/c1e7f16430a1583a40b824db0bce8e78e7cb4d69) |
 | `expect(result).to eq(expected)` | 同値かどうか判定。 | [38df87f](https://github.com/okapie/rspec-rails6-study/commit/38df87fc717a5b524ab81ccaea4e30ae39d935a3) |
 | `expect(result).not_to` | 「〜ではない」ことを検証する。<br>`eq` などのマッチャとワンセットで使用する。 | [57d5552](https://github.com/okapie/rspec-rails6-study/commit/57d55520b291ca5bfbcd5f8ed435227f696ae193) |
-| `raise_error` | 「エラーが起きること」を検証する。 | [75df746](https://github.com/okapie/rspec-rails6-study/commit/75df746685278db91b111c55766ed55819b96a7f) |
+| `raise_error` | 「エラーが起きること」を検証する。 | [fb04728](https://github.com/okapie/rspec-rails6-study/commit/fb04728cf0ff4ebb110d9cae9b9c2d8a56350d72)<br>[75df746](https://github.com/okapie/rspec-rails6-study/commit/75df746685278db91b111c55766ed55819b96a7f) |
 
 ### Example groups
 
